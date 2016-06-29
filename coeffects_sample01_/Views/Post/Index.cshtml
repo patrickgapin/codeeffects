@@ -1,0 +1,31 @@
+﻿@using CodeEffects.Rule.Common
+@using CodeEffects.Rule.Mvc
+@{
+    ViewBag.Title = "Post Rules page";
+
+    Html.CodeEffects().Styles()
+        .SetTheme(ThemeType.Gray)
+        .Render();
+}
+
+<br/>
+<div>
+
+    @{
+        Html.CodeEffects().RuleEditor()
+            .Id("ruleEditor")
+            .SaveAction("Save", "Post")
+            .DeleteAction("Delete", "Post")
+            .LoadAction("Load", "Post")
+            .Mode(RuleType.Execution)
+            .ContextMenuRules(ViewBag.ContextMenuRules)
+            .ToolBarRules(ViewBag.ToolBarRules)
+            .Rule(ViewBag.Rule)
+            .Render();
+    }
+
+    @{
+        Html.CodeEffects().Scripts().Render();
+    }
+
+</div>
