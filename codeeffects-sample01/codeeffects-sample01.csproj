@@ -182,6 +182,7 @@
     <Compile Include="Rules\DepositLimits\DepositLimitHelper.cs" />
     <Compile Include="Rules\DepositLimits\DepositLimitRule.cs" />
     <Compile Include="Models\CreditCard\Limits.cs" />
+    <Compile Include="Rules\DepositLimits\IDepositimitRule.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

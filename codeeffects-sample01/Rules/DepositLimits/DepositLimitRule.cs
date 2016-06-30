@@ -1,5 +1,5 @@
 ﻿
-using codeeffects_sample01.Models;
+
 using codeeffects_sample01.Models.CreditCard;
 using CodeEffects.Rule.Attributes;
 
@@ -10,19 +10,17 @@ using CodeEffects.Rule.Attributes;
 // http://codeeffects.com/Doc/Business-Rule-External-Method-Attribute
 namespace codeeffects_sample01.Rules.DepositLimits
 {
-    [Source(DeclaredMembersOnly = true)] // Prevents loading members from another partial class whichis
+    [Source(DeclaredMembersOnly = true)] // Prevents loading members from another partial class in case there is one which is automatically built. 
+                                        // Could apply to a EF-generated class.
     [ExternalAction(typeof(DepositLimitHelper), "Validate")]
     [ExternalMethod(typeof(DepositLimitHelper), "IsCreditCardAmountValid")]
-    public class DepositLimitRule
+    public class DepositLimitRule: IDepositimitRule
     {
         public CreditCard CreditCard { get; set; }
-
-        [ExcludeFromEvaluation]
-        public Result EvaluationResult;
        
-        // Use of in-rule method.
-        [Method("-- Card Amount is More than 2000 --")]
         public bool CardAmountHigherThan2000() { return CreditCard.Amount > 2000; }
+
+        public Result EvaluationResult { get; set; }
     }
 
 }
