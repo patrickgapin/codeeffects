@@ -183,6 +183,7 @@
     <Compile Include="Rules\DepositLimits\DepositLimitRule.cs" />
     <Compile Include="Models\CreditCard\Limits.cs" />
     <Compile Include="Rules\DepositLimits\IDepositimitRule.cs" />
+    <Compile Include="Services\StorageService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Rules\127.0.0.1\Evaluation\" />
+    <Folder Include="Rules\127.0.0.1\Execution\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

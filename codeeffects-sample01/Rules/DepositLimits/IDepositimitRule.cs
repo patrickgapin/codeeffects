@@ -13,6 +13,6 @@ namespace codeeffects_sample01.Rules.DepositLimits
         [Method("-- Card Amount is More than 2000 --")]
         bool CardAmountHigherThan2000();
 
-        CreditCard CreditCard { get; set; };
+        CreditCard CreditCard { get; set; }
     }
 }

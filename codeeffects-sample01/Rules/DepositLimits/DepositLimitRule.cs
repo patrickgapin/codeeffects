@@ -21,6 +21,11 @@ namespace codeeffects_sample01.Rules.DepositLimits
         public bool CardAmountHigherThan2000() { return CreditCard.Amount > 2000; }
 
         public Result EvaluationResult { get; set; }
+
+        // This property is used to display outputs of rule actions
+        [ExcludeFromEvaluation]
+        public string Output { get; set; }
+
     }
 
 }
