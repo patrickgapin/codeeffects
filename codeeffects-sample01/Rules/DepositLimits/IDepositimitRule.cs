@@ -1,4 +1,5 @@
 ﻿
+using codeeffects_sample01.Models;
 using codeeffects_sample01.Models.CreditCard;
 using CodeEffects.Rule.Attributes;
 
@@ -14,5 +15,7 @@ namespace codeeffects_sample01.Rules.DepositLimits
         bool CardAmountHigherThan2000();
 
         CreditCard CreditCard { get; set; }
+
+        User  Client { get; set; }
     }
 }

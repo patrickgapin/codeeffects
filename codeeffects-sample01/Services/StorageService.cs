@@ -39,7 +39,7 @@ namespace codeeffects_sample01.Services
 		public static List<MenuItem> GetAllRules()
 		{
 			// Get both execution and evaluation type rules, merge them, sort them and return the result
-			List<MenuItem> rules = LoadRules(true);
+			var rules = LoadRules(true);
 			rules.AddRange(LoadRules(false));
 			rules.Sort(delegate(MenuItem mi1, MenuItem mi2) { return mi1.DisplayName.CompareTo(mi2.DisplayName); });
 			return rules;

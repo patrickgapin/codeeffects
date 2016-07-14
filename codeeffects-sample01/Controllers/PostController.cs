@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 using codeeffects_sample01.Rules.DepositLimits;
 using codeeffects_sample01.Services;
@@ -33,6 +30,7 @@ namespace codeeffects_sample01.Controllers
             ruleEditor.BindSource(typeof(DepositLimitRule));
 
             ViewBag.Rule = ruleEditor;
+            var x = CodeEffects.Rule.Common.Xml.GetEmptyRuleDocument();
 
             if (ruleEditor.IsEmpty() || !ruleEditor.IsValid(StorageService.LoadRuleXml))
             {

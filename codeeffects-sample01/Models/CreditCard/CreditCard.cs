@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using codeeffects_sample01.Rules.DepositLimits;
 using CodeEffects.Rule.Attributes;
 using CodeEffects.Rule.Common;
 
@@ -15,9 +15,11 @@ namespace codeeffects_sample01.Models.CreditCard
 
     public class CreditCard
     {
-        [Field(DisplayName = "BIN Number", Description = "Credit Card BIN Number")]
+        [Field(DisplayName = "BIN Number", Description = "Credit Card BIN Number", IncludeInCalculations = false)]
         public int Bin { get; set; }
 
+        [Field(DisplayName = "Past Expiration Dates", Description = "Expiration dates for the previous 4 cards that were replaced.")]
+        public List<DateTime> PastExpirationDates { get; set; }
 
         [Field(DisplayName = "Credit Card Type", Description = "Credit Card Type: Visa, MasterCard, etc.")]
         public CardType Type { get; set; }
@@ -29,6 +31,10 @@ namespace codeeffects_sample01.Models.CreditCard
 
         [Field(DisplayName = "Card Expiration Date", ValueInputType = ValueInputType.User, DateTimeFormat = "MMM dd yyyy")]
         public DateTime? ExpirationDate { get; set; }
+
+        // The following check how to use 'CollectionItemType' to infer the object type, when it cannot be determined automatically. (Because we use ArrayList in that case)
+        [Field(DisplayName = "Card Unknown FIeld", CollectionItemType = typeof(Int32))]
+        public ArrayList ListOfUndefinedType { get; set; }
 
         [ExcludeFromEvaluation]
         public Result EvaluationResult;
